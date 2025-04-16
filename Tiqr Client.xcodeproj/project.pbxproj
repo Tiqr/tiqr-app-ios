@@ -646,7 +646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.4;
+				MARKETING_VERSION = 3.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = org.tiqr.surfnet;
 				PRODUCT_NAME = TiqrClient;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -688,7 +688,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.4;
+				MARKETING_VERSION = 3.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = org.tiqr.surfnet;
 				PRODUCT_NAME = TiqrClient;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -795,7 +795,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.4;
+				MARKETING_VERSION = 3.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = org.tiqr.surfnet.testing;
 				PRODUCT_NAME = TiqrClient;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1035,7 +1035,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.4;
+				MARKETING_VERSION = 3.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = org.tiqr.surfnet.testing;
 				PRODUCT_NAME = TiqrClient;
 				SWIFT_EMIT_LOC_STRINGS = YES;
