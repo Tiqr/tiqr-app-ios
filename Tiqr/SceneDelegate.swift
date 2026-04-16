@@ -49,13 +49,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         if let url = connectionOptions.urlContexts.first?.url {
-            Tiqr.shared.startChallenge(challenge: url.absoluteString)
+            Tiqr.shared.startChallenge(
+                challenge: url.absoluteString,
+                serviceName: nil
+            )
         }
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let url = URLContexts.first?.url {
-            Tiqr.shared.startChallenge(challenge: url.absoluteString)
+            Tiqr.shared.startChallenge(
+                challenge: url.absoluteString,
+                serviceName: nil
+            )
         }
     }
 
@@ -69,8 +75,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
-            Tiqr.shared.startChallenge(challenge: challenge)
+        if let notificationData = RecentNotifications(appGroup: appGroup).getLastNotificationData() {
+            Tiqr.shared.startChallenge(
+                challenge: notificationData.challenge,
+                serviceName: notificationData.serviceName
+            )
         }
     }
 
