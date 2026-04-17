@@ -52,13 +52,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = Tiqr.shared.startWithOptions(options: launchOptions, theme: Theme())
             self.window?.makeKeyAndVisible()
         }
-        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
+        if let notificationData = RecentNotifications(appGroup: appGroup).getLastNotificationData() {
             // [TIQR-490] Crash fix:
             // Give the app some time to initialize the persistentStorage.
             // That would normally be done on the main thread, but challenges are checked on a background thread.
             // If we would do this too soon, then the persistentStorage would be initialized on the background thread, and that could lead to sporadic crashes
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-                Tiqr.shared.startChallenge(challenge: challenge)
+                Tiqr.shared.startChallenge(
+                    challenge: notificationData.challenge,
+                    serviceName: notificationData.serviceName
+                )
             })
         }
         return true
@@ -80,13 +83,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        Tiqr.shared.startChallenge(
+            challenge: url.absoluteString,
+            serviceName: nil
+        )
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
-            Tiqr.shared.startChallenge(challenge: challenge)
+        if let notificationData = RecentNotifications(appGroup: appGroup).getLastNotificationData() {
+            Tiqr.shared.startChallenge(
+                challenge: notificationData.challenge,
+                serviceName: notificationData.serviceName
+            )
         }
     }
 }
@@ -104,8 +113,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             // App is already open, handle the notification
             let userInfo = notification.request.content.userInfo
             if let challenge = userInfo["challenge"] as? String {
+                let serviceName = userInfo["serviceName"] as? String
                 DispatchQueue.main.async {
-                    Tiqr.shared.startChallenge(challenge: challenge)
+                    Tiqr.shared.startChallenge(
+                        challenge: challenge,
+                        serviceName: serviceName
+                    )
                 }
             }
             completionHandler([])
@@ -115,7 +128,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let challenge = userInfo["challenge"] as? String {
-            Tiqr.shared.startChallenge(challenge: challenge)
+            let serviceName = userInfo["serviceName"] as? String
+            Tiqr.shared.startChallenge(
+                challenge: challenge,
+                serviceName: serviceName
+            )
         }
     }
 }
