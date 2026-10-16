@@ -635,6 +635,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tiqr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tiqr;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Tiqr uses the camera to scan QR-codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Tiqr uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -677,6 +678,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tiqr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tiqr;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Tiqr uses the camera to scan QR-codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Tiqr uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -783,7 +785,8 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tiqr/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Tiqr Test";
+				INFOPLIST_KEY_CFBundleDisplayName = Tiqr;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Tiqr uses the camera to scan QR-codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Tiqr uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1023,7 +1026,8 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tiqr/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Tiqr Test";
+				INFOPLIST_KEY_CFBundleDisplayName = Tiqr;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Tiqr uses the camera to scan QR-codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Tiqr uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1198,7 +1202,7 @@
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
 				kind = revision;
-				revision = fbaeaa515d9daa3de48630724b8d2059dab57fd1;
+				revision = 078fe54dc86047c86e62c48f5083ff43d9782961;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
