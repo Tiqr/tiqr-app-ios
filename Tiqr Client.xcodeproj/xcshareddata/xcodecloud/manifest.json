@@ -1,0 +1,13 @@
+{
+  "id" : "2aaab800-8c74-45ab-8546-c1424b35a739",
+  "targets" : [
+    {
+      "id" : "CBDD1499-F2D3-4926-97A7-C5F23AC12740",
+      "name" : "Tiqr Client"
+    },
+    {
+      "id" : "9D216F70-80EF-40D2-8308-723B9B1A14BC",
+      "name" : "Tiqr Client Test"
+    }
+  ]
+}
